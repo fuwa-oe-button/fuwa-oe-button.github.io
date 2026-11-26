@@ -1,4 +1,26 @@
 [
-  {"id":"demo-1","title":"샘플 · 시작 장면","source":"YouTube 공식 API 예제 영상","videoId":"M7lc1UVf-VE","start":0,"end":6,"category":"샘플"},
-  {"id":"demo-2","title":"샘플 · 다음 장면","source":"YouTube 공식 API 예제 영상","videoId":"M7lc1UVf-VE","start":6,"end":12,"category":"샘플"}
+  {
+    "id": "demo-1",
+    "title": "샘플 · 시작 장면",
+    "source": "YouTube 공식 API 예제 영상",
+    "videoId": "M7lc1UVf-VE",
+    "start": 0,
+    "end": 6,
+    "category": "샘플",
+    "audioUrl": "demo-tone.wav",
+    "demo": true,
+    "date": ""
+  },
+  {
+    "id": "demo-2",
+    "title": "샘플 · 다음 장면",
+    "source": "YouTube 공식 API 예제 영상",
+    "videoId": "M7lc1UVf-VE",
+    "start": 6,
+    "end": 12,
+    "category": "샘플",
+    "audioUrl": "demo-tone.wav",
+    "demo": true,
+    "date": ""
+  }
 ]
