@@ -795,3 +795,14 @@ footer p {
 }
 
 
+
+/* Total count: below the title, aligned right. */
+header #total-count {
+  text-align: right;
+  margin: 14px 0 0;
+  padding: 0;
+  font-size: 14px;
+}
+@media (max-width: 700px) {
+  header #total-count { font-size: 13px; margin-top: 12px; }
+}
