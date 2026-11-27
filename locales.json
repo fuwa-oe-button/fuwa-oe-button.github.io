@@ -136,7 +136,12 @@
     "이전 클립": "이전 클립",
     "다음 클립": "다음 클립",
     "펼치기": "펼치기",
-    "접기": "접기"
+    "접기": "접기",
+    "site.footer.before": "해당 사이트는 ",
+    "site.footer.guidelines": "ANYCOLOR 이차창작 가이드라인",
+    "site.footer.after": "을 엄수하며, 비영리 목적으로 운영됩니다.",
+    "site.footer.contact": "문의처",
+    "site.footer.updated": "최종 갱신일"
   },
   "ja": {
     "음성 경로는 파일 경로 또는 http(s) 주소로 입력해주세요.": "音声パスはファイルパスかhttp(s)のURLで入力してください。",
@@ -275,6 +280,11 @@
     "이전 클립": "前のクリップ",
     "다음 클립": "次のクリップ",
     "펼치기": "開く",
-    "접기": "閉じる"
+    "접기": "閉じる",
+    "site.footer.before": "当サイトは",
+    "site.footer.guidelines": "ANYCOLOR二次創作ガイドライン",
+    "site.footer.after": "を遵守し、非営利目的で運営しています。",
+    "site.footer.contact": "お問い合わせ",
+    "site.footer.updated": "最終更新日"
   }
 }
