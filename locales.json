@@ -4,7 +4,7 @@
     "영상을 재생할 수 없습니다 ({code}). 원본 링크를 확인해주세요.": "영상을 재생할 수 없습니다 ({code}). 원본 링크를 확인해주세요.",
     "{year}년 ({count})": "{year}년 ({count})",
     "연도 미등록 ({count})": "연도 미등록 ({count})",
-    "site.title": "不破嘔吐ボタン.",
+    "site.title": "후와 구토 버튼.",
     "잊을 수 없는 그 순간, 한 번 더.": "잊을 수 없는 그 순간, 한 번 더.",
     "✦ 랜덤 재생": "✦ 랜덤 재생",
     "음량": "음량",
@@ -127,8 +127,8 @@
     "유튜브 구간 재생 중": "유튜브 구간 재생 중",
     "현재 테스트용 유튜브 영상만 등록되어 있습니다.": "현재 테스트용 유튜브 영상만 등록되어 있습니다.",
     "유튜브 공식 임베드 플레이어로 원본 영상의 지정 구간을 재생합니다. 조회수 반영 여부는 YouTube의 집계 기준에 따릅니다.": "유튜브 공식 임베드 플레이어로 원본 영상의 지정 구간을 재생합니다. 조회수 반영 여부는 YouTube의 집계 기준에 따릅니다.",
-    "site.title.prefix": "不破",
-    "site.title.rest": "嘔吐ボタン.",
+    "site.title.prefix": "후와",
+    "site.title.rest": " 구토 버튼.",
     "site.eyebrow": "UNOFFICIAL FAN SITE",
     "site.footer.note": "ANYCOLOR 및 소속 라이버와는 관계가 없습니다.",
     "재생 중인 영상": "재생 중인 영상",
@@ -141,7 +141,8 @@
     "site.footer.guidelines": "ANYCOLOR 이차창작 가이드라인",
     "site.footer.after": "을 엄수하며, 비영리 목적으로 운영됩니다.",
     "site.footer.contact": "문의처",
-    "site.footer.updated": "최종 갱신일"
+    "site.footer.updated": "최종 갱신일",
+    "재생중인 영상이 없습니다.": "재생중인 영상이 없습니다."
   },
   "ja": {
     "음성 경로는 파일 경로 또는 http(s) 주소로 입력해주세요.": "音声パスはファイルパスかhttp(s)のURLで入力してください。",
@@ -285,6 +286,7 @@
     "site.footer.guidelines": "ANYCOLOR二次創作ガイドライン",
     "site.footer.after": "を遵守し、非営利目的で運営しています。",
     "site.footer.contact": "お問い合わせ",
-    "site.footer.updated": "最終更新日"
+    "site.footer.updated": "最終更新日",
+    "재생중인 영상이 없습니다.": "再生中の動画はありません。"
   }
 }

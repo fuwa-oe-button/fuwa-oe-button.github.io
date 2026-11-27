@@ -22,7 +22,7 @@ function toggleFavorite(c){if(favorites.has(c.id))favorites.delete(c.id);else fa
 function updateNow(){
  const empty=!current||state==='stopped',active=!empty&&(state==='playing'||state==='loading');
  $('playing').classList.toggle('is-empty',empty);$('playing-title').classList.toggle('empty-title',empty);
- $('playing-title').textContent=empty?(window.FuwaI18N?.t('재생 중인 영상')||'재생 중인 영상'):(current.source||current.title);
+ $('playing-title').textContent=empty?(window.FuwaI18N?.t('재생중인 영상이 없습니다.')||'재생중인 영상이 없습니다.'):(current.source||current.title);
  $('playing-title').title=empty?'':current.source||current.title;
  $('playing-date').textContent=empty?'—':current.date?current.date.replaceAll('-','. '):'—';
  $('playing-range').textContent=empty?'—':time(current.start)+' ~ '+time(current.end);
