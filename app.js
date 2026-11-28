@@ -48,7 +48,28 @@ function render(refresh=false){
   if(!visible.length)$('list').append(node('p','조건에 맞는 클립이 없습니다.','empty'));$('random').disabled=!visible.length;renderSaved();updateNow();
 }
 
-function renderSaved(){const available=new Map(clips.map(c=>[c.id,c]));$('history-count').textContent=history.filter(id=>available.has(id)).length;$('favorites-count').textContent=[...favorites].filter(id=>available.has(id)).length;const ids=selectedTab==='history'?history:[...favorites];$('saved-list').replaceChildren();let count=0;for(const id of ids){const c=available.get(id);if(!c)continue;count++;const row=node('div',undefined,'saved-row'),b=button('',()=>{queue=[];play(c);},'saved-play');b.append(node('strong',c.source||c.title),node('small',time(c.start)+' ~ '+time(c.end)));b.title=c.title;row.append(b,star(c));$('saved-list').append(row);}if(!count)$('saved-list').append(node('p',selectedTab==='history'?'아직 재생한 클립이 없습니다.':'별표를 눌러 좋아하는 순간을 모아보세요.','empty'));$('history-tab').setAttribute('aria-selected',String(selectedTab==='history'));$('favorites-tab').setAttribute('aria-selected',String(selectedTab==='favorites'));$('history-tab').tabIndex=selectedTab==='history'?0:-1;$('favorites-tab').tabIndex=selectedTab==='favorites'?0:-1;$('saved-panel').setAttribute('aria-labelledby',selectedTab==='history'?'history-tab':'favorites-tab');$('clear-history').hidden=selectedTab!=='history';}
+function renderSaved(){
+  const available=new Map(clips.map(c=>[c.id,c]));
+  $('history-count').textContent=history.filter(id=>available.has(id)).length;
+  $('favorites-count').textContent=[...favorites].filter(id=>available.has(id)).length;
+  const ids=selectedTab==='history'?history:[...favorites];
+  $('saved-list').replaceChildren();let count=0;
+  for(const id of ids){
+    const c=available.get(id);if(!c)continue;count++;
+    const row=node('div',undefined,'saved-row');
+    const b=button('',()=>{queue=[];play(c);},'saved-play');
+    const img=node('img');img.src=`https://i.ytimg.com/vi/${c.videoId}/mqdefault.jpg`;img.alt='';img.loading='lazy';
+    b.append(img,node('strong',c.source||c.title));b.title=c.title;
+    row.append(b,star(c));$('saved-list').append(row);
+  }
+  if(!count)$('saved-list').append(node('p',selectedTab==='history'?'아직 재생한 클립이 없습니다.':'별표를 눌러 좋아하는 순간을 모아보세요.','empty'));
+  $('history-tab').setAttribute('aria-selected',String(selectedTab==='history'));
+  $('favorites-tab').setAttribute('aria-selected',String(selectedTab==='favorites'));
+  $('history-tab').tabIndex=selectedTab==='history'?0:-1;
+  $('favorites-tab').tabIndex=selectedTab==='favorites'?0:-1;
+  $('saved-panel').setAttribute('aria-labelledby',selectedTab==='history'?'history-tab':'favorites-tab');
+  $('clear-history').hidden=selectedTab!=='history';
+}
 function captureOffset(){if(!current)return 0;if(ytReady&&ytStarted)return Math.max(0,Math.min(current.end-current.start,yt.getCurrentTime()-current.start));return offset;}
 function silence(){if(ytReady)yt.pauseVideo();ytStarted=false;pendingYT=null;}
 function record(c){history=[c.id,...history.filter(id=>id!==c.id)].slice(0,100);persist('fuwa-history',history);}
