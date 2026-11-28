@@ -58,8 +58,7 @@ function renderSaved(){
     const c=available.get(id);if(!c)continue;count++;
     const row=node('div',undefined,'saved-row');
     const b=button('',()=>{queue=[];play(c);},'saved-play');
-    const img=node('img');img.src=`https://i.ytimg.com/vi/${c.videoId}/mqdefault.jpg`;img.alt='';img.loading='lazy';
-    b.append(img,node('strong',c.source||c.title));b.title=c.title;
+    b.append(node('strong',c.source||c.title));b.title=c.title;
     row.append(b,star(c));$('saved-list').append(row);
   }
   if(!count)$('saved-list').append(node('p',selectedTab==='history'?'아직 재생한 클립이 없습니다.':'별표를 눌러 좋아하는 순간을 모아보세요.','empty'));
@@ -90,8 +89,9 @@ $('seek').onchange=()=>{if(!current)return;offset=Number($('seek').value)/1000*(
 $('random').onclick=random;$('pause').onclick=pause;$('stop').onclick=stop;$('favorite').onclick=()=>current&&toggleFavorite(current);$('previous').onclick=()=>skip(-1);$('next').onclick=()=>skip(1);
 $('volume').oninput=()=>{$('volume-value').textContent=$('volume').value+'%';$('volume').style.setProperty('--progress',$('volume').value+'%');if(ytReady)yt.setVolume(Number($('volume').value));};
 $('auto').onchange=()=>{queue=[];if($('auto').checked)$('loop').checked=false;};$('loop').onchange=()=>{if($('loop').checked){$('auto').checked=false;queue=[];}};
-function selectTab(tab){selectedTab=tab;renderSaved();}['history','favorites'].forEach(t=>{$(`${t}-tab`).onclick=()=>selectTab(t);$(`${t}-tab`).onkeydown=e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?'history':e.key==='End'?'favorites':selectedTab==='history'?'favorites':'history';selectTab(next);$(`${next}-tab`).focus();}};});
-$('panel-toggle').onclick=()=>{const hidden=!$('saved-panel').hidden;$('saved-panel').hidden=hidden;$('panel-toggle-label').textContent=hidden?'펼치기':'접기';$('panel-toggle').setAttribute('aria-expanded',String(!hidden));};
+function setSavedPanelOpen(open){$('saved-panel').hidden=!open;$('panel-toggle-label').textContent=open?'접기':'펼치기';$('panel-toggle').setAttribute('aria-expanded',String(open));}
+function selectTab(tab){selectedTab=tab;renderSaved();setSavedPanelOpen(true);}['history','favorites'].forEach(t=>{$(`${t}-tab`).onclick=()=>selectTab(t);$(`${t}-tab`).onkeydown=e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?'history':e.key==='End'?'favorites':selectedTab==='history'?'favorites':'history';selectTab(next);$(`${next}-tab`).focus();}};});
+$('panel-toggle').onclick=()=>setSavedPanelOpen($('saved-panel').hidden);
 $('clear-history').onclick=()=>{if(confirm('이 브라우저의 재생 기록을 지울까요?')){history=[];persist('fuwa-history',history);renderSaved();}};
 (async()=>{try{const r=await fetch('clips.json',{cache:'no-store'});if(!r.ok)throw Error('목록을 불러오지 못했습니다.');deployed=validate(await r.json());clips=deployed.map(c=>({...c}));clips.forEach(c=>collapsed.add(c.videoId));render(true);}catch(err){status(err.message);render(true);}})();
 
